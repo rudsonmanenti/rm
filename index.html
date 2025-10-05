@@ -93,7 +93,7 @@
                     <a href="#contato" class="btn">Entre em Contato</a>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Equipe de trabalho da RM Soluções" loading="lazy">
+                    <img src="_img/equipe-rm-solucoes.jpg" alt="Equipe de trabalho da RM Soluções" loading="lazy">
                 </div>
             </div>
         </div>
@@ -140,21 +140,21 @@
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Sistema CFTV Empresarial instalado pela RM Soluções" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Sistema CFTV Empresarial instalado pela RM Soluções" loading="lazy">
                     <div class="portfolio-overlay">
                         <h3>Sistema CFTV Empresarial</h3>
                         <p>Instalação completa em empresa do setor varejista</p>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1581094794329-cdc53f4b4c2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Cabeamento estruturado implementado pela RM Soluções" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Cabeamento estruturado implementado pela RM Soluções" loading="lazy">
                     <div class="portfolio-overlay">
                         <h3>Cabeamento Estruturado</h3>
                         <p>Infraestrutura de rede para escritório corporativo</p>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Sistema de controle de acesso instalado pela RM Soluções" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Sistema de controle de acesso instalado pela RM Soluções" loading="lazy">
                     <div class="portfolio-overlay">
                         <h3>Controle de Acesso</h3>
                         <p>Sistema completo para condomínio residencial</p>
@@ -237,7 +237,7 @@
 
     <!-- Botão WhatsApp Flutuante -->
     <div class="whatsapp-float">
-        <a href="https://wa.me/551134567890?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento" target="_blank" rel="noopener" aria-label="Entre em contato pelo WhatsApp">
+        <a id="whatsapp-float-link" href="#" target="_blank" rel="noopener" aria-label="Entre em contato pelo WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
@@ -253,7 +253,7 @@
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://wa.me/551134567890" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+                        <a id="whatsapp-footer-link" href="#" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
@@ -280,7 +280,7 @@
                     <h3>Newsletter</h3>
                     <p>Inscreva-se para receber novidades e dicas de segurança.</p>
                     <form class="newsletter-form" id="newsletterForm">
-                        <input type="email" placeholder="Seu e-mail" class="form-control" required style="margin-bottom: 10px;">
+                        <input type="email" placeholder="Seu e-mail" class="form-control newsletter-input" required>
                         <button type="submit" class="btn">Inscrever</button>
                     </form>
                 </div>
@@ -292,5 +292,30 @@
     </footer>
 
    <script src="_script/script.js"></script>
+   <script>
+    // Configuração centralizada do número do WhatsApp
+    const whatsappNumber = '551134567890';
+    const whatsappMessage = 'Olá, gostaria de solicitar um orçamento';
+
+    // Atualiza todos os links do WhatsApp na página
+    document.addEventListener('DOMContentLoaded', function() {
+        // Float button
+        const floatLink = document.getElementById('whatsapp-float-link');
+        if (floatLink) {
+            floatLink.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+        }
+        // Footer link
+        const footerLink = document.getElementById('whatsapp-footer-link');
+        if (footerLink) {
+            footerLink.href = `https://wa.me/${whatsappNumber}`;
+        }
+        // Contact info section
+        const contactInfoLinks = document.querySelectorAll('a[href^="https://wa.me/551134567890"]');
+        contactInfoLinks.forEach(link => {
+            link.href = `https://wa.me/${whatsappNumber}`;
+        });
+        // Any other WhatsApp links (add more selectors if needed)
+    });
+   </script>
 </body>
 </html>

@@ -27,6 +27,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Adicionar botão voltar ao topo dinamicamente
+    const backToTop = document.createElement('div');
+    backToTop.className = 'back-to-top';
+    backToTop.innerHTML = '<a href="#" aria-label="Voltar ao topo"><i class="fas fa-chevron-up"></i></a>';
+    document.body.appendChild(backToTop);
+
     // Header scroll effect
     window.addEventListener('scroll', function() {
         const header = document.querySelector('header');
@@ -37,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Botão voltar ao topo
-        const backToTop = document.querySelector('.back-to-top');
         if (window.scrollY > 300) {
             backToTop.classList.add('show');
         } else {
@@ -191,15 +196,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 5000);
     }
 
-    // Adicionar botão voltar ao topo dinamicamente
-    const backToTop = document.createElement('div');
-    backToTop.className = 'back-to-top';
-    backToTop.innerHTML = '<a href="#" aria-label="Voltar ao topo"><i class="fas fa-chevron-up"></i></a>';
-    document.body.appendChild(backToTop);
-
-    // Adicionar botão WhatsApp flutuante dinamicamente
-    const whatsappFloat = document.createElement('div');
-    whatsappFloat.className = 'whatsapp-float';
-    whatsappFloat.innerHTML = '<a href="https://wa.me/551134567890?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento" target="_blank" rel="noopener" aria-label="Entre em contato pelo WhatsApp"><i class="fab fa-whatsapp"></i></a>';
+    // (Botão voltar ao topo já criado acima)
+    // Adicionar botão WhatsApp flutuante dinamicamente, se não existir
+    if (!document.querySelector('.whatsapp-float')) {
+        const whatsappFloat = document.createElement('div');
+        whatsappFloat.className = 'whatsapp-float';
+        whatsappFloat.innerHTML = '<a href="https://wa.me/551134567890?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento" target="_blank" rel="noopener" aria-label="Entre em contato pelo WhatsApp"><i class="fab fa-whatsapp"></i></a>';
+        document.body.appendChild(whatsappFloat);
+    }
     document.body.appendChild(whatsappFloat);
 });
